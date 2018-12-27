@@ -13,9 +13,7 @@ Alternative Email (Holiday Hours): tom \<at\> megumin.cc
 If you love Japanese Anime and Galgames, we might have similar favors.
 
 ----
-Still struggling in this game
 
-osu! ID: system32
-
----
 Wechat: tom715566504
+
+<i><font color='grey'>Last Update: 12/27/2018</a></i>
