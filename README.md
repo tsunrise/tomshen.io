@@ -17,4 +17,6 @@ If you love Japanese Anime and Galgames, we might have similar favors.
 
 Wechat: tom715566504
 
-<i><font color='grey'>Last Update: 12/27/2018</font></i>
+<i><font color='grey'>Last Updated: 12/27/2018</font></i>
+
+[中文版本](https://tomshen.io/cn)
