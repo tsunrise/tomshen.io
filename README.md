@@ -13,6 +13,7 @@ Alternative Email (Holiday Hours): tom \<at\> megumin.cc
 If you love Japanese Anime and Galgames, we might have similar favors.
 
 ----
+![Tree](https://i.imgur.com/aR5ZY5vl.jpg)
 
 Wechat: tom715566504
 
