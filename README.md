@@ -19,4 +19,4 @@ Wechat: tom715566504
 
 <i><font color='grey'>Last Updated: 12/27/2018</font></i>
 
-[中文版本](https://tomshen.io/cn)
+<a href='https://tomshen.io/cn' target='_blank'>中文</a>
