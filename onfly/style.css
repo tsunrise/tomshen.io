@@ -1,0 +1,6 @@
+.jumbotron.bkg{
+    background-image: url("img/bkg.jpg");
+    background-size: 100% auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: ivory;
+}
