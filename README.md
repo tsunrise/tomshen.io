@@ -3,11 +3,9 @@ Email: tomshen \<at\> berkeley.edu <br/>
 Alternative Email (Holiday Hours): tom \<at\> megumin.cc
  
 
-- UC Berkeley Freshman
+- UC Berkeley First Year Student
 - Intended CS
-- Ask me about **CS61A** or **Data 8**. I think I know a lot. 
-- Learning CS61B, EE16A, and COGSCI 1 in this spring.
-
+- Sometimes I took <a href="http://beautpiece.com/">photos</a>
 ----
 
 If you love Japanese Anime and Galgames, we might have similar favors.
@@ -17,6 +15,6 @@ If you love Japanese Anime and Galgames, we might have similar favors.
 
 Wechat: tom715566504
 
-<i> <font color='grey'>Last Updated: 12/28/2018</font> </i>
+<i><font color='grey'>Last Updated: 1/8/2019</font></i>
 
 <a href='https://tomshen.io/cn' target='_blank'>中文</a>

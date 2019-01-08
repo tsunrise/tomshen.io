@@ -7,8 +7,7 @@
 
 - 加州大学伯克利分校大一在读
 - Intended CS
-- 熟知CS61A, Data8 
-- 目前正在学习CS61B, EE16A, 认知科学相关课程。
+- 有时候我会拍一些<a href="http://beautpiece.com/">照片</a>
 
 ----
 
@@ -19,4 +18,4 @@
 
 微信: tom715566504
 
-<i><font color='grey'>Last Updated: 12/28/2018</font></i>
+<i><font color='grey'>Last Updated: 1/9/2019</font></i>
