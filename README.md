@@ -6,6 +6,8 @@ Alternative Email (Holiday Hours): tom \<at\> megumin.cc
 - UC Berkeley First Year Student
 - Intended CS
 - Sometimes I took <a href="http://beautpiece.com/">photos</a>
+
+
 ----
 
 If you love Japanese Anime and Galgames, we might have similar favors.
