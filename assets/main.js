@@ -1,18 +1,16 @@
 /*
-For WeChat Functioning
+For Contact Functioning
  */
 
-function handleHover(source, target){
-    source.hover(
-        function (e) {
-            if (e.handleObj.type === 'mouseover'){
-            target.collapse('show')
-        }else {
-            target.collapse('hide')
-        }
-        }
-    )
+function clickLogoToggle(source, target){
+    source.click(function () {
+        source.toggleClass('active');
+        target.collapse('toggle');
+    })
 }
 
-handleHover($('#wechat-button'),$('#test-collapse'));
+clickLogoToggle($('#wechat-button'),$('#wechat-details'));
+clickLogoToggle($('#fb-button'),$('#fb-details'));
+clickLogoToggle($('#osu-button'),$('#osu-details'));
+
 

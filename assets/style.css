@@ -20,3 +20,6 @@
     transition: 300ms;
 }
 
+.idle-grey.active{
+    filter: grayscale(0%);
+}
