@@ -11,9 +11,20 @@
 
 </head>
 <body>
+<!-- FOR FACEBOOK FUNCTIONING-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- END-->
+
 
 <div class="container">
-    <div class="jumbotron bkg">
+    <div class="jumbotron bkg" style="margin-top: 10px">
         <h1>Tom Shen</h1>
         <p style="font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace">Life is hard, but look at the sky.</p>
     </div>
@@ -44,11 +55,14 @@
                     <li>Intended CS</li>
                     <li>Sometimes I took <a href="http://beautpiece.com/">photos</a></li>
                 </ul>
+                <hr>
+                <div class="fb-comments" data-href="https://tomshen.io/" data-width="100%" data-numposts="5"></div>
             </div>
-            <div class="col-sm-3 col-lg-2" id="selfie">
+            <div class="col-sm-3 col-lg-2 d-none d-sm-block" id="selfie">
                 <img src="img/me.jpg" class="shadow" style="width: 100%; border-radius: 10px">
             </div>
         </div>
+
     </div>
 </div>
 
