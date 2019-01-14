@@ -1,0 +1,25 @@
+.jumbotron.bkg{
+    background-image: url("../img/bkg.jpg");
+    background-size: 100% auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: ivory;
+}
+
+.logo{
+    width: 20px;
+    height: 20px;
+}
+
+.idle-grey{
+    filter: grayscale(100%);
+    transition: 300ms;
+}
+
+.idle-grey:hover{
+    filter: grayscale(0%);
+    transition: 300ms;
+}
+
+.idle-grey.active{
+    filter: grayscale(0%);
+}

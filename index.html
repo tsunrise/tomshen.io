@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tom Shen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+<!-- FOR FACEBOOK FUNCTIONING-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- END-->
+
+
+<div class="container">
+    <div class="jumbotron bkg" style="margin-top: 10px">
+        <h1>Tom Shen</h1>
+        <p style="font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace">Life is hard, but look at the sky.</p>
+    </div>
+    <div class="container" id="contact">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-lg-4"><img src="img/_ionicons_svg_md-mail.svg" height="20"> tomshen &#60;at&#62;  berkeley.edu</div>
+                    <div class="col-lg-4"><img src="img/_ionicons_svg_md-mail.svg" height="20"> tom &#60;at&#62; megumin.cc</div>
+                    <div class="col-lg-4">
+                        <img class="logo idle-grey" src="img/facebook.png" id="fb-button">
+                        <img class="logo idle-grey" src="img/wechat_logo.png" id="wechat-button">
+                    </div>
+                </div>
+
+                <div class="row collapse" style="margin-top:5px;" id="fb-details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-2 d-none d-sm-block col-sm-4 col-md-3 col-lg-2">
+                                <img src="img/fbqr.png" width="100%"/>
+                            </div>
+                            <div class="col col-xs-3">
+                                <h2>Facebook</h2>
+                                <a href="https://www.facebook.com/tomshen.h" target="_blank">
+                                    <button type="button" class="btn btn-primary" >View</button>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row collapse" id="wechat-details">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-2 d-none d-sm-block col-sm-4 col-md-3 col-lg-2">
+                                <img src="img/wechat_qr.png" width="100%"/>
+                            </div>
+                            <div class="col col-xs-3">
+                                <h2>Wechat</h2>
+                                <p>ID: tom715566504</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <ul>
+                    <li>UC Berkeley First Year Student</li>
+                    <li>Intended CS</li>
+                    <li>Sometimes I took <a href="http://beautpiece.com/" target="_blank">photos</a></li>
+                    <li>If you love Japanese Anime and Galgames, we might have similar favors.</li>
+                </ul>
+                <hr>
+                <div class="fb-comments" data-href="https://tomshen.io/" data-width="100%" data-numposts="5"></div>
+            </div>
+            <div class="col-sm-3 col-lg-2 d-none d-sm-block" id="selfie">
+                <img src="img/me.jpg" class="shadow" style="width: 100%; border-radius: 10px">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+
+<script src="assets/main.js"></script>
+</html>
