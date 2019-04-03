@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/tsunrise
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tomshen.io
+  * I am tsunrise (https://keybase.io/tsunrise) on keybase.
+  * I have a public key ASBvrVHR83fjBM26_9QPK5_CNODm21vSIarrBiCgaSN33Qo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01206fad51d1f377e304cdbaffd40f2b9fc234e0e6db5bd221aaeb0620a0692377dd0a",
+      "host": "keybase.io",
+      "kid": "01206fad51d1f377e304cdbaffd40f2b9fc234e0e6db5bd221aaeb0620a0692377dd0a",
+      "uid": "43d13d1a0de7432d6e8fe4edef067919",
+      "username": "tsunrise"
+    },
+    "merkle_root": {
+      "ctime": 1554258138,
+      "hash": "e3ef733ec08c777d12bc7c1421245faef04100adb9b406b72cdb26e0fb8ae8f1c4757e2264ea5936d8cf765e0f988989b51afa474b169f19628ce44c21d57522",
+      "hash_meta": "92e7f5a1e90a4692597bfe854add969d22c571b1ab54dc57b2d7d52509305ecf",
+      "seqno": 5084095
+    },
+    "service": {
+      "entropy": "9LzOfN8eJuWi+K2YCCVvr5w3",
+      "hostname": "tomshen.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.1.2"
+  },
+  "ctime": 1554258153,
+  "expire_in": 504576000,
+  "prev": "650f9169b718504f5695ec6c550ed16372792e4ecb040a75efffe64cce8757b7",
+  "seqno": 7,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgb61R0fN34wTNuv/UDyufwjTg5ttb0iGq6wYgoGkjd90Kp3BheWxvYWTESpcCB8QgZQ+RabcYUE9WlexsVQ7RY3J5Lk7LBAp17//mTM6HV7fEICuJJXf1aqvV6jCwX8hwCS8fsHVuvz2UvnbOvH/j/vHzAgHCo3NpZ8RA7kE9rk9uIi9Pp3aHStLVDMM4arayvkZloK+cICulvFqTmEDhG5U84Dx/eLnld3yNeedwHD4mNNng8eV1Zbk9A6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIDoPMtOnyXxax4K5Hf6IHTjxgXsHw6puQp7NRacMU4mGo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tsunrise
+
+==================================================================
