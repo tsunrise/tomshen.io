@@ -11,6 +11,6 @@ function clickLogoToggle(source, target){
 
 clickLogoToggle($('#wechat-button'),$('#wechat-details'));
 clickLogoToggle($('#fb-button'),$('#fb-details'));
-clickLogoToggle($('#osu-button'),$('#osu-details'));
+clickLogoToggle($('#twitter-button'),$('#twitter-details'));
 
 
