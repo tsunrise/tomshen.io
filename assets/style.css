@@ -23,3 +23,11 @@
 .idle-grey.active{
     filter: grayscale(0%);
 }
+
+.looks_cool{
+    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+}
+
+.not_focus{
+    color: grey !important;
+}
