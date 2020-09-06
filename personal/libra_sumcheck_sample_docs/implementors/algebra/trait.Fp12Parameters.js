@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["algebra"] = [{"text":"impl <a class=\"trait\" href=\"algebra/trait.Fp12Parameters.html\" title=\"trait algebra::Fp12Parameters\">Fp12Parameters</a> for <a class=\"struct\" href=\"algebra/bls12_377/struct.Fq12Parameters.html\" title=\"struct algebra::bls12_377::Fq12Parameters\">Fq12Parameters</a>","synthetic":false,"types":["algebra::bls12_377::fields::fq12::Fq12Parameters"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

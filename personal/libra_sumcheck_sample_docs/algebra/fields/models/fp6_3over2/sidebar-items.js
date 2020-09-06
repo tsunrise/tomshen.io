@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Fp6ParamsWrapper",""]],"trait":[["Fp6Parameters",""]],"type":[["Fp6",""]]});

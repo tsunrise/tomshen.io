@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["g1",""],["g2",""]],"struct":[["G1Prepared",""],["G2Prepared",""],["MNT4",""]],"trait":[["MNT4Parameters",""]],"type":[["G1Affine",""],["G1Projective",""],["G2Affine",""],["G2Projective",""],["GT",""]]});

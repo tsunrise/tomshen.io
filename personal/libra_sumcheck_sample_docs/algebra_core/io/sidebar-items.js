@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Cursor","This data structure is used as a workaround for current design of `ToBytes` which does not allow multiple writes to `&mut [u8]`."],["Error",""]],"trait":[["Read",""],["Write",""]],"type":[["Result",""]]});

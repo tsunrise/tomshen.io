@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Evaluations","Stores a polynomial in evaluation form."]]});

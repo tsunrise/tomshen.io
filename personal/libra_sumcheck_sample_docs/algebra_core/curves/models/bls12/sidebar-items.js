@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["TwistType",""]],"mod":[["g1",""],["g2",""]],"struct":[["Bls12",""]],"trait":[["Bls12Parameters",""]]});

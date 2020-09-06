@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["TwistType",""]],"mod":[["g1",""],["g2",""]],"struct":[["Bls12",""],["G1Prepared",""],["G2Prepared",""]],"trait":[["Bls12Parameters",""]],"type":[["G1Affine",""],["G1Projective",""],["G2Affine",""],["G2Projective",""]]});

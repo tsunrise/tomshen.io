@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["fq",""],["fr",""]],"struct":[["EdwardsParameters","`JubJub` is a twisted Edwards curve. These curves have equations of the form: ax² + y² = 1 - dx²y². over some base finite field Fq."],["FqParameters",""],["FrParameters",""]],"type":[["EdwardsAffine",""],["EdwardsProjective",""],["Fq",""],["Fr",""]]});

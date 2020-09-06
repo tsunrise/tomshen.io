@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["GroupAffine",""],["GroupProjective",""],["MontgomeryGroupAffine",""]]});

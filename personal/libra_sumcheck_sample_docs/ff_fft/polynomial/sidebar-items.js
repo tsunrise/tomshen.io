@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["DenseOrSparsePolynomial","Represents either a sparse polynomial or a dense one."]],"struct":[["DensePolynomial","Stores a polynomial in coefficient form."],["SparsePolynomial","Stores a sparse polynomial in coefficient form."]]});

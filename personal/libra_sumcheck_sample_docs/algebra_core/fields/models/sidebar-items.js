@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["cubic_extension",""],["fp12_2over3over2",""],["fp2",""],["fp3",""],["fp4",""],["fp6_2over3",""],["fp6_3over2",""],["quadratic_extension",""]],"struct":[["Fp256",""],["Fp320",""],["Fp384",""],["Fp768",""],["Fp832",""]],"trait":[["Fp256Parameters",""],["Fp320Parameters",""],["Fp384Parameters",""],["Fp768Parameters",""],["Fp832Parameters",""]]});

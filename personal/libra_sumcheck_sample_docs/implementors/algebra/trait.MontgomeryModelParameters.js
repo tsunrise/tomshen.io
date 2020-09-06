@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["algebra"] = [{"text":"impl <a class=\"trait\" href=\"algebra/trait.MontgomeryModelParameters.html\" title=\"trait algebra::MontgomeryModelParameters\">MontgomeryModelParameters</a> for <a class=\"struct\" href=\"algebra/ed_on_bls12_381/struct.EdwardsParameters.html\" title=\"struct algebra::ed_on_bls12_381::EdwardsParameters\">EdwardsParameters</a>","synthetic":false,"types":["algebra::ed_on_bls12_381::curves::EdwardsParameters"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
