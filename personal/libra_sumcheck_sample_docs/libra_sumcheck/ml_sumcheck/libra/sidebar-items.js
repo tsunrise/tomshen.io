@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["LibraMLClaim","Main claim of libra ML sumcheck"],["LibraMLProof","Proof of Libra ML Claim"],["LibraMLSubclaim","Subclaim of Libra Verifier"],["LibraMLSumcheck","Libra implementation of sumcheck protocol of product of multilinear functions"]]});
