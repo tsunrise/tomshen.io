@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["T13Claim","Main claim of t13 ML sumcheck"],["T13Proof","Proof of Libra ML Claim"],["T13Subclaim","Subclaim of Libra Verifier"],["T13Sumcheck","`thaler13` implementation of sumcheck protocol of product of multilinear functions"]]});
+initSidebarItems({"struct":[["T13Claim","Main claim of t13 ML sumcheck"],["T13Proof","Proof of T13 ML Claim"],["T13Subclaim","Subclaim of T13 Verifier"],["T13Sumcheck","`thaler13` implementation of sumcheck protocol of product of multilinear functions"]]});

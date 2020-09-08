@@ -333,16 +333,21 @@
 <span id="333">333</span>
 <span id="334">334</span>
 <span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">algebra</span>::<span class="ident">Field</span>;
 
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">ml_extension</span>::{<span class="ident">GKRFunction</span>, <span class="ident">MLExtension</span>, <span class="ident">SparseMLExtension</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">protocol</span>::<span class="ident">Protocol</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">GKRAsLink</span>;
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">msg</span>::{<span class="ident">LibraPMsg</span>, <span class="ident">LibraVMsg</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">msg</span>::{<span class="ident">XZZPS19PMsg</span>, <span class="ident">XZZPS19VMsg</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">Prover</span>;
 
-<span class="doccomment">/// Libra implementation of GKR sumcheck prover</span>
+<span class="doccomment">/// XZZPS19 implementation of GKR sumcheck prover</span>
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">XZZPS19Prover</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">Field</span>,
@@ -371,7 +376,7 @@
     <span class="comment">// cache for phase two</span>
     <span class="ident">a_f3_f2u</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>,
     <span class="comment">// cache for phase two</span>
-    <span class="ident">messages</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>, <span class="comment">// record the messages sent by prover</span>
+    <span class="ident">messages</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>, <span class="comment">// record the messages sent by prover</span>
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="ident">XZZPS19Prover</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>
@@ -515,7 +520,12 @@
     <span class="doccomment">/// general prover helper for `phase1_talk` and `phase2_talk`</span>
     <span class="doccomment">/// * `p1`,`p2`: bookkeeping table for the two MLExtension: of same length</span>
     <span class="doccomment">/// * `round_in_phase`: round in current phase</span>
-    <span class="kw">fn</span> <span class="ident">single_round_2pmf_sum</span>(<span class="ident">p1</span>: <span class="kw-2">&amp;</span>[<span class="ident">F</span>], <span class="ident">p2</span>: <span class="kw-2">&amp;</span>[<span class="ident">F</span>], <span class="ident">nv</span>: <span class="ident">usize</span>, <span class="ident">round_in_phase</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">single_round_2pmf_sum</span>(
+        <span class="ident">p1</span>: <span class="kw-2">&amp;</span>[<span class="ident">F</span>],
+        <span class="ident">p2</span>: <span class="kw-2">&amp;</span>[<span class="ident">F</span>],
+        <span class="ident">nv</span>: <span class="ident">usize</span>,
+        <span class="ident">round_in_phase</span>: <span class="ident">usize</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sum_p1_p2</span> <span class="op">=</span> (<span class="ident">F</span>::<span class="ident">zero</span>(), <span class="ident">F</span>::<span class="ident">zero</span>(), <span class="ident">F</span>::<span class="ident">zero</span>());
         <span class="kw">let</span> <span class="ident">ts</span> <span class="op">=</span> [<span class="ident">F</span>::<span class="ident">zero</span>(), <span class="ident">F</span>::<span class="ident">one</span>(), <span class="ident">F</span>::<span class="ident">one</span>() <span class="op">+</span> <span class="ident">F</span>::<span class="ident">one</span>()];
         <span class="kw">for</span> <span class="ident">b</span> <span class="kw">in</span> <span class="number">0</span>..(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> (<span class="ident">nv</span> <span class="op">-</span> <span class="ident">round_in_phase</span>)) {
@@ -529,7 +539,7 @@
                 }
             }
         }
-        <span class="ident">LibraPMsg</span>(<span class="ident">sum_p1_p2</span>.<span class="number">0</span>, <span class="ident">sum_p1_p2</span>.<span class="number">1</span>, <span class="ident">sum_p1_p2</span>.<span class="number">2</span>)
+        <span class="ident">XZZPS19PMsg</span>(<span class="ident">sum_p1_p2</span>.<span class="number">0</span>, <span class="ident">sum_p1_p2</span>.<span class="number">1</span>, <span class="ident">sum_p1_p2</span>.<span class="number">2</span>)
     }
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
@@ -592,8 +602,8 @@
     <span class="ident">S</span>: <span class="ident">SparseMLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>,
     <span class="ident">D</span>: <span class="ident">MLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>,
 {
-    <span class="kw">type</span> <span class="ident">InboundMessage</span> <span class="op">=</span> <span class="ident">LibraVMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
-    <span class="kw">type</span> <span class="ident">OutBoundMessage</span> <span class="op">=</span> <span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+    <span class="kw">type</span> <span class="ident">InboundMessage</span> <span class="op">=</span> <span class="ident">XZZPS19VMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+    <span class="kw">type</span> <span class="ident">OutBoundMessage</span> <span class="op">=</span> <span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
     <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="kw">crate</span>::<span class="ident">Error</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>

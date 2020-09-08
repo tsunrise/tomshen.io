@@ -200,8 +200,6 @@
 <span id="200">200</span>
 <span id="201">201</span>
 <span id="202">202</span>
-<span id="203">203</span>
-<span id="204">204</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>;
 
@@ -212,19 +210,19 @@
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">protocol</span>::<span class="ident">Protocol</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">random</span>::{<span class="ident">FeedableRNG</span>, <span class="ident">RnFg</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::{<span class="ident">Blake2s512Rng</span>, <span class="ident">GKRAsLink</span>};
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">msg</span>::{<span class="ident">LibraPMsg</span>, <span class="ident">LibraVMsg</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">msg</span>::{<span class="ident">XZZPS19PMsg</span>, <span class="ident">XZZPS19VMsg</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::{<span class="ident">XZZPS19Prover</span>, <span class="ident">XZZPS19Verifier</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::{
     <span class="ident">GKRFuncSumcheck</span>, <span class="ident">GKRFuncVerifierSubclaim</span>, <span class="ident">GKRRoundClaim</span>, <span class="ident">GKRRoundProof</span>, <span class="ident">GKRRoundSubClaim</span>,
     <span class="ident">Prover</span>, <span class="ident">Verifier</span>,
 };
 
-<span class="doccomment">/// Linear GKRFunction Sumcheck Protocol introduced by Libra Paper</span>
-<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LibraGKRFuncSumCheck</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span>, <span class="ident">S</span>: <span class="ident">SparseMLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>, <span class="ident">D</span>: <span class="ident">MLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+<span class="doccomment">/// Linear GKRFunction Sumcheck Protocol introduced by Xie et.al</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">XZZPS19Sumcheck</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span>, <span class="ident">S</span>: <span class="ident">SparseMLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>, <span class="ident">D</span>: <span class="ident">MLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span> {
     <span class="ident">_marker</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span>(<span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span>)<span class="op">&gt;</span>,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="ident">GKRFuncSumcheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">LibraGKRFuncSumCheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="ident">GKRFuncSumcheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">XZZPS19Sumcheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">Field</span>,
     <span class="ident">S</span>: <span class="ident">SparseMLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>,
@@ -263,7 +261,7 @@
             <span class="kw">let</span> <span class="ident">msg</span> <span class="op">=</span> <span class="macro">unwrap_safe</span><span class="macro">!</span>(<span class="ident">prover</span>.<span class="ident">get_latest_message</span>());
             <span class="macro">unwrap_safe</span><span class="macro">!</span>(<span class="ident">prng</span>.<span class="ident">feed</span>(<span class="kw-2">&amp;</span><span class="ident">msg</span>));
             <span class="ident">messages</span>.<span class="ident">push</span>(<span class="ident">msg</span>);
-            <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> <span class="ident">LibraVMsg</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+            <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> <span class="ident">XZZPS19VMsg</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
                 <span class="ident">x</span>: <span class="ident">prng</span>.<span class="ident">random_field</span>(),
             };
             <span class="macro">unwrap_safe</span><span class="macro">!</span>(<span class="ident">prover</span>.<span class="ident">push_message</span>(<span class="kw-2">&amp;</span><span class="ident">r</span>));
@@ -350,7 +348,7 @@
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>, <span class="ident">CanonicalSerialize</span>, <span class="ident">CanonicalDeserialize</span>)]</span>
 <span class="doccomment">/// Proof of xzzps19 gkr function sumcheck</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">XZZPS19Proof</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> {
-    <span class="ident">prover_msgs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="ident">prover_msgs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span><span class="op">&gt;</span>,
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">GKRRoundProof</span> <span class="kw">for</span> <span class="ident">XZZPS19Proof</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
@@ -387,7 +385,7 @@
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">tests</span>::<span class="ident">random_sparse_poly_fast</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">MLExtensionRefArray</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">tests</span>::<span class="ident">test_gkr_func_proc_completeness</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">LibraGKRFuncSumCheck</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">XZZPS19Sumcheck</span>;
 
     <span class="kw">type</span> <span class="ident">F</span> <span class="op">=</span> <span class="ident">TestField</span>;
 
@@ -401,10 +399,8 @@
         <span class="kw">let</span> <span class="ident">f3_arr</span> <span class="op">=</span> <span class="macro">fill_vec</span><span class="macro">!</span>(<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">DIM</span>, <span class="ident">F</span>::<span class="ident">rand</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>));
         <span class="kw">let</span> <span class="ident">f3</span> <span class="op">=</span> <span class="ident">MLExtensionRefArray</span>::<span class="ident">from_slice</span>(<span class="kw-2">&amp;</span><span class="ident">f3_arr</span>).<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">g</span> <span class="op">=</span> <span class="macro">fill_vec</span><span class="macro">!</span>(<span class="ident">DIM</span>, <span class="ident">F</span>::<span class="ident">rand</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>));
-        <span class="ident">test_gkr_func_proc_completeness</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">LibraGKRFuncSumCheck</span><span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(
-            <span class="kw-2">&amp;</span><span class="ident">f1</span>, <span class="kw-2">&amp;</span><span class="ident">f2</span>, <span class="kw-2">&amp;</span><span class="ident">f3</span>, <span class="kw-2">&amp;</span><span class="ident">g</span>,
-        )
-        .<span class="ident">unwrap</span>();
+        <span class="ident">test_gkr_func_proc_completeness</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">XZZPS19Sumcheck</span><span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="ident">f1</span>, <span class="kw-2">&amp;</span><span class="ident">f2</span>, <span class="kw-2">&amp;</span><span class="ident">f3</span>, <span class="kw-2">&amp;</span><span class="ident">g</span>)
+            .<span class="ident">unwrap</span>();
     }
 }
 </pre></div>

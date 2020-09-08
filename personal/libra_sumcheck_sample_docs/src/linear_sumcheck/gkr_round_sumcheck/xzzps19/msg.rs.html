@@ -114,11 +114,11 @@
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Clone</span>)]</span>
 <span class="doccomment">/// Message used for prover, received by verifier.</span>
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span>(<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">F</span>, <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">F</span>, <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">F</span>);
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span>(<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">F</span>, <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">F</span>, <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">F</span>);
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">Message</span> <span class="kw">for</span> <span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {}
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">Message</span> <span class="kw">for</span> <span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {}
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalSerialize</span> <span class="kw">for</span> <span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalSerialize</span> <span class="kw">for</span> <span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">serialize</span><span class="op">&lt;</span><span class="ident">W</span>: <span class="ident">Write</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw-2">mut</span> <span class="ident">writer</span>: <span class="ident">W</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">SerializationError</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">serialize</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">writer</span>)<span class="question-mark">?</span>;
         <span class="self">self</span>.<span class="number">1</span>.<span class="ident">serialize</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">writer</span>)<span class="question-mark">?</span>;
@@ -132,16 +132,16 @@
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalDeserialize</span> <span class="kw">for</span> <span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalDeserialize</span> <span class="kw">for</span> <span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">deserialize</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">Read</span><span class="op">&gt;</span>(<span class="kw-2">mut</span> <span class="ident">reader</span>: <span class="ident">R</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">SerializationError</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">p0</span> <span class="op">=</span> <span class="ident">F</span>::<span class="ident">read</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">reader</span>)<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">p1</span> <span class="op">=</span> <span class="ident">F</span>::<span class="ident">read</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">reader</span>)<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">p2</span> <span class="op">=</span> <span class="ident">F</span>::<span class="ident">read</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">reader</span>)<span class="question-mark">?</span>;
-        <span class="prelude-val">Ok</span>(<span class="ident">LibraPMsg</span>(<span class="ident">p0</span>, <span class="ident">p1</span>, <span class="ident">p2</span>))
+        <span class="prelude-val">Ok</span>(<span class="ident">XZZPS19PMsg</span>(<span class="ident">p0</span>, <span class="ident">p1</span>, <span class="ident">p2</span>))
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">ToBytes</span> <span class="kw">for</span> <span class="ident">LibraPMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">ToBytes</span> <span class="kw">for</span> <span class="ident">XZZPS19PMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">write</span><span class="op">&lt;</span><span class="ident">W</span>: <span class="ident">Write</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">writer</span>: <span class="ident">W</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">IOResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">serialize</span>(<span class="ident">writer</span>) {
             <span class="prelude-val">Ok</span>(()) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Ok</span>(()),
@@ -152,7 +152,7 @@
 
 <span class="doccomment">/// Message sent from verifier to prover</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>, <span class="ident">Clone</span>)]</span>
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">LibraVMsg</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> {
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">XZZPS19VMsg</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> {
     <span class="doccomment">/// The fixed argument x</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// At round i, `H_i(x) = sum of H(m1, m2, ..., m_(i-1), x, v_(i+1), ... v_2n) over v_(i+1) to v_2n`.</span>
@@ -160,9 +160,9 @@
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="ident">x</span>: <span class="ident">F</span>,
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">Message</span> <span class="kw">for</span> <span class="ident">LibraVMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {}
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">Message</span> <span class="kw">for</span> <span class="ident">XZZPS19VMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {}
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalSerialize</span> <span class="kw">for</span> <span class="ident">LibraVMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalSerialize</span> <span class="kw">for</span> <span class="ident">XZZPS19VMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">serialize</span><span class="op">&lt;</span><span class="ident">W</span>: <span class="ident">Write</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">writer</span>: <span class="ident">W</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">SerializationError</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">x</span>.<span class="ident">serialize</span>(<span class="ident">writer</span>)
     }
@@ -172,7 +172,7 @@
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalDeserialize</span> <span class="kw">for</span> <span class="ident">LibraVMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">CanonicalDeserialize</span> <span class="kw">for</span> <span class="ident">XZZPS19VMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">deserialize</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">Read</span><span class="op">&gt;</span>(<span class="ident">reader</span>: <span class="ident">R</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">SerializationError</span><span class="op">&gt;</span> {
         <span class="prelude-val">Ok</span>(<span class="self">Self</span> {
             <span class="ident">x</span>: <span class="ident">F</span>::<span class="ident">deserialize</span>(<span class="ident">reader</span>)<span class="question-mark">?</span>,
@@ -180,7 +180,7 @@
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">ToBytes</span> <span class="kw">for</span> <span class="ident">LibraVMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span> <span class="ident">ToBytes</span> <span class="kw">for</span> <span class="ident">XZZPS19VMsg</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">write</span><span class="op">&lt;</span><span class="ident">W</span>: <span class="ident">Write</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">writer</span>: <span class="ident">W</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">IOResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">serialize</span>(<span class="ident">writer</span>) {
             <span class="prelude-val">Ok</span>(()) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Ok</span>(()),
@@ -195,7 +195,7 @@
 
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">protocol</span>::<span class="ident">tests</span>::<span class="ident">test_message_serialization</span>;
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">test_field</span>::<span class="ident">TestField</span> <span class="kw">as</span> <span class="ident">TF</span>;
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">msg</span>::{<span class="ident">LibraPMsg</span>, <span class="ident">LibraVMsg</span>};
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">xzzps19</span>::<span class="ident">msg</span>::{<span class="ident">XZZPS19PMsg</span>, <span class="ident">XZZPS19VMsg</span>};
 
     <span class="kw">const</span> <span class="ident">NUM_ITERATIONS</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">100</span>;
 
@@ -208,8 +208,8 @@
             <span class="kw">let</span> <span class="ident">p1</span> <span class="op">=</span> <span class="ident">TF</span>::<span class="ident">rand</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
             <span class="kw">let</span> <span class="ident">p2</span> <span class="op">=</span> <span class="ident">TF</span>::<span class="ident">rand</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
             <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">TF</span>::<span class="ident">rand</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
-            <span class="kw">let</span> <span class="ident">msg</span> <span class="op">=</span> <span class="ident">LibraPMsg</span>(<span class="ident">p0</span>, <span class="ident">p1</span>, <span class="ident">p2</span>);
-            <span class="kw">let</span> <span class="ident">msg_v</span> <span class="op">=</span> <span class="ident">LibraVMsg</span> { <span class="ident">x</span> };
+            <span class="kw">let</span> <span class="ident">msg</span> <span class="op">=</span> <span class="ident">XZZPS19PMsg</span>(<span class="ident">p0</span>, <span class="ident">p1</span>, <span class="ident">p2</span>);
+            <span class="kw">let</span> <span class="ident">msg_v</span> <span class="op">=</span> <span class="ident">XZZPS19VMsg</span> { <span class="ident">x</span> };
             <span class="ident">test_message_serialization</span>(<span class="ident">msg</span>, <span class="number">3</span>, <span class="op">|</span><span class="ident">m1</span>, <span class="ident">m2</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">m1</span> <span class="op">=</span><span class="op">=</span> <span class="kw-2">*</span><span class="ident">m2</span>);
             <span class="ident">test_message_serialization</span>(<span class="ident">msg_v</span>, <span class="number">3</span>, <span class="op">|</span><span class="ident">m1</span>, <span class="ident">m2</span><span class="op">|</span> <span class="kw-2">*</span><span class="ident">m1</span> <span class="op">=</span><span class="op">=</span> <span class="kw-2">*</span><span class="ident">m2</span>);
         }

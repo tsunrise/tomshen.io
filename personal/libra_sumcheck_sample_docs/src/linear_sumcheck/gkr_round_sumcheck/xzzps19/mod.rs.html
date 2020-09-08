@@ -265,7 +265,7 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">benchmark</span>() {
-        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Runtime analysis for Libra GKRFunc sumcheck protocol&quot;</span>);
+        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Runtime analysis for XZZPS19 GKRFunc sumcheck protocol&quot;</span>);
         <span class="macro">timeit</span><span class="macro">!</span>(<span class="ident">benchmark_for</span>(<span class="number">7</span>));
         <span class="macro">timeit</span><span class="macro">!</span>(<span class="ident">benchmark_for</span>(<span class="number">8</span>));
         <span class="macro">timeit</span><span class="macro">!</span>(<span class="ident">benchmark_for</span>(<span class="number">9</span>));
@@ -297,7 +297,7 @@
         <span class="kw">let</span> ((<span class="ident">t_prover_get</span>, <span class="ident">t_prover_push</span>), (<span class="ident">t_verifier_get</span>, <span class="ident">t_verifier_push</span>)) <span class="op">=</span>
             <span class="ident">test_protocol_benchmark</span>(<span class="ident">prover</span>, <span class="ident">verifier</span>, (<span class="ident">dim</span> <span class="op">*</span> <span class="number">2</span>) <span class="kw">as</span> <span class="ident">u32</span>);
 
-        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Libra GKR Function Prover Benchmark Result (dim={})&quot;</span>, <span class="ident">dim</span>);
+        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;XZZPS19 GKR Function Prover Benchmark Result (dim={})&quot;</span>, <span class="ident">dim</span>);
         <span class="macro">println</span><span class="macro">!</span>(
             <span class="string">&quot;Prover Time = Setup({}ms) + Get({}ms) + Push({}ms) = {}ms&quot;</span>,
             <span class="ident">t_prover_setup</span>.<span class="ident">as_millis</span>(),
