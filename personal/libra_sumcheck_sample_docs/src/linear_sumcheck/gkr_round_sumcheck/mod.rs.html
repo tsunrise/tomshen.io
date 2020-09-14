@@ -134,8 +134,21 @@
 <span id="134">134</span>
 <span id="135">135</span>
 <span id="136">136</span>
+<span id="137">137</span>
+<span id="138">138</span>
+<span id="139">139</span>
+<span id="140">140</span>
+<span id="141">141</span>
+<span id="142">142</span>
+<span id="143">143</span>
+<span id="144">144</span>
+<span id="145">145</span>
+<span id="146">146</span>
+<span id="147">147</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="doccomment">//! Interactive Protocol for GKR Function</span>
+<span class="doccomment">//! Sumcheck Protocol for GKR Round Function.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! More details can be found in the documentation of [`GKRRoundSumcheck`](trait.GKRRoundSumcheck.html).</span>
 
 <span class="kw">use</span> <span class="ident">algebra</span>::{<span class="ident">CanonicalDeserialize</span>, <span class="ident">CanonicalSerialize</span>, <span class="ident">Field</span>};
 
@@ -151,48 +164,57 @@
 <span class="doccomment">/// Interactive Verifier Trait</span>
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod</span> <span class="ident">verifier</span>;
 
-<span class="doccomment">/// Sumcheck protocol for GKR Functions</span>
+<span class="doccomment">/// #### Sumcheck protocol for GKR Round Functions</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// GKR round function is of form `f1(g,x,y)*f2(x)*f3(y)` with dimension `L`.</span>
+<span class="doccomment">/// `g`,`x`,`y` is a vector of length `L`, where `g` is fixed. `f1`&#39;s domain is a hypercube of</span>
+<span class="doccomment">/// dimension `3L` on finite field `F`. `f2`,`f3` are polynomials whose domains are</span>
+<span class="doccomment">/// a hypercube of dimension `L` on finite field `F`.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// * `F`: Field</span>
 <span class="doccomment">/// * `S`: Data representation of sparse multilinear extension</span>
 <span class="doccomment">/// * `D`: Data representation of dense multilinear extension</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">GKRFuncSumcheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">GKRRoundSumcheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>
 <span class="kw">where</span>
     <span class="ident">F</span>: <span class="ident">Field</span>,
     <span class="ident">S</span>: <span class="ident">SparseMLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>,
     <span class="ident">D</span>: <span class="ident">MLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>,
 {
-    <span class="doccomment">/// The claim to be proved.</span>
+    <span class="doccomment">/// The asserted sum of the GKR function when `g` is fixed at a given value.</span>
     <span class="kw">type</span> <span class="ident">Claim</span>: <span class="ident">GKRRoundClaim</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// proof</span>
+    <span class="doccomment">/// The proof of the claim that can be verified offline.</span>
     <span class="kw">type</span> <span class="ident">Proof</span>: <span class="ident">GKRRoundProof</span>;
-    <span class="doccomment">/// Error</span>
+    <span class="doccomment">/// type of Error</span>
     <span class="kw">type</span> <span class="ident">Error</span>: <span class="ident">algebra</span>::<span class="ident">Error</span> <span class="op">+</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw">crate</span>::<span class="ident">Error</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// Subclaim</span>
+    <span class="doccomment">/// The output of the function `verify_proof`. If the claim is true, then the subclaim must be true.</span>
     <span class="kw">type</span> <span class="ident">SubClaim</span>: <span class="ident">GKRRoundSubClaim</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// Generate claim</span>
+    <span class="doccomment">/// Given the GKR function and fixed point `g`, calculate the sum and generate a claim of the sum.</span>
+    <span class="doccomment">/// * `f1`: component of GKR round function     </span>
+    <span class="doccomment">/// * `f2`: component of GKR round function</span>
+    <span class="doccomment">/// * `f3`: component of GKR round function</span>
+    <span class="doccomment">/// `g`: fixed point</span>
     <span class="kw">fn</span> <span class="ident">generate_claim</span>(<span class="ident">f1</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>, <span class="ident">f2</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>, <span class="ident">f3</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>, <span class="ident">g</span>: <span class="kw-2">&amp;</span>[<span class="ident">F</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Claim</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// Generate Theorem and Proof</span>
+    <span class="doccomment">/// Given the GKR function and fixed point `g`, calculate the sum, generate a claim of the sum,</span>
+    <span class="doccomment">/// and generate a proof of this claim.</span>
+    <span class="doccomment">/// * `f1`: component of GKR round function     </span>
+    <span class="doccomment">/// * `f2`: component of GKR round function</span>
+    <span class="doccomment">/// * `f3`: component of GKR round function</span>
+    <span class="doccomment">/// `g`: fixed point</span>
     <span class="kw">fn</span> <span class="ident">generate_claim_and_proof</span>(
         <span class="ident">f1</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
         <span class="ident">f2</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>,
         <span class="ident">f3</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>,
         <span class="ident">g</span>: <span class="kw-2">&amp;</span>[<span class="ident">F</span>],
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="self">Self</span>::<span class="ident">Claim</span>, <span class="self">Self</span>::<span class="ident">Proof</span>), <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// Generate Proof</span>
-    <span class="kw">fn</span> <span class="ident">generate_proof</span>(
-        <span class="ident">f1</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
-        <span class="ident">f2</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>,
-        <span class="ident">f3</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>,
-        <span class="ident">g</span>: <span class="kw-2">&amp;</span>[<span class="ident">F</span>],
-        <span class="ident">claim</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">Claim</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">Proof</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// verify proof (no need to have access to GKR).</span>
-    <span class="doccomment">/// If the proof looks good, generate a subclaim. The claim is true is subclaim is true.</span>
+    <span class="doccomment">/// Given the claim and proof, verify if the claim is correct. Note that the verifier</span>
+    <span class="doccomment">/// does not need to access the GKR. Instead, the function outputs a subclaim. [`Verifying the subclaim`](#method.verify_subclaim)</span>
+    <span class="doccomment">/// requires one evaluation of the GKR function.</span>
     <span class="kw">fn</span> <span class="ident">verify_proof</span>(
         <span class="ident">claim</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">Claim</span>, <span class="comment">//claim</span>
         <span class="ident">proof</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">Proof</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">SubClaim</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// verify the subclaim, using one oracle access to the gkr function.</span>
+    <span class="doccomment">/// verify the subclaim, using one oracle access to the gkr function. If the claim is true, this function will return true.</span>
     <span class="kw">fn</span> <span class="ident">verify_subclaim</span>(
         <span class="ident">f1</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
         <span class="ident">f2</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>,
@@ -211,18 +233,18 @@
         <span class="kw">let</span> <span class="ident">f2_ev</span> <span class="op">=</span> <span class="macro">unwrap_safe</span><span class="macro">!</span>(<span class="ident">f2</span>.<span class="ident">eval_at</span>(<span class="kw-2">&amp;</span><span class="ident">subclaim</span>.<span class="ident">x</span>()));
         <span class="kw">let</span> <span class="ident">f3_ev</span> <span class="op">=</span> <span class="macro">unwrap_safe</span><span class="macro">!</span>(<span class="ident">f3</span>.<span class="ident">eval_at</span>(<span class="kw-2">&amp;</span><span class="ident">subclaim</span>.<span class="ident">y</span>()));
 
-        <span class="prelude-val">Ok</span>(<span class="ident">f1_ev</span> <span class="op">*</span> <span class="ident">f2_ev</span> <span class="op">*</span> <span class="ident">f3_ev</span> <span class="op">=</span><span class="op">=</span> <span class="ident">subclaim</span>.<span class="ident">ev</span>())
+        <span class="prelude-val">Ok</span>(<span class="ident">f1_ev</span> <span class="op">*</span> <span class="ident">f2_ev</span> <span class="op">*</span> <span class="ident">f3_ev</span> <span class="op">=</span><span class="op">=</span> <span class="ident">subclaim</span>.<span class="ident">expected_evaluation</span>())
     }
 }
 
-<span class="doccomment">/// fixed point g, and the sum of the GKR function.</span>
+<span class="doccomment">/// fixed point g, and the sum of the GKR round function.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">GKRRoundClaim</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span>: <span class="ident">Clone</span> <span class="op">+</span> <span class="ident">CanonicalSerialize</span> <span class="op">+</span> <span class="ident">CanonicalDeserialize</span> {
-    <span class="doccomment">/// fixed point g</span>
+    <span class="doccomment">/// a vector representing fixed point g on the hypercube</span>
     <span class="kw">fn</span> <span class="ident">g</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// the dimension of the GKR function to be proved (# variables of g)</span>
+    <span class="doccomment">/// the dimension of the GKR function to be proved (number variables of g)</span>
     <span class="kw">fn</span> <span class="ident">dim</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u32</span>;
-    <span class="doccomment">/// asserted sum of the GKR function</span>
-    <span class="kw">fn</span> <span class="ident">sum</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F</span>;
+    <span class="doccomment">/// asserted sum of the GKR round function when g is fixed</span>
+    <span class="kw">fn</span> <span class="ident">asserted_sum</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F</span>;
 }
 
 <span class="doccomment">/// proof of the GKRFuncTheorem</span>
@@ -232,12 +254,12 @@
 
 <span class="doccomment">/// subclaim: point and evaluation of that GKR</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">GKRRoundSubClaim</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Field</span><span class="op">&gt;</span>: <span class="ident">Clone</span> <span class="op">+</span> <span class="ident">CanonicalSerialize</span> <span class="op">+</span> <span class="ident">CanonicalDeserialize</span> {
-    <span class="doccomment">/// x</span>
+    <span class="doccomment">/// a vector representing a point on hypercube. `x` corresponds to `x` in the [GKR Function](trait.GKRRoundSumcheck.html)</span>
     <span class="kw">fn</span> <span class="ident">x</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
-    <span class="doccomment">/// y</span>
+    <span class="doccomment">/// a vector representing a point on hypercube. `y` corresponds to `y` in the [GKR Function](trait.GKRRoundSumcheck.html)</span>
     <span class="kw">fn</span> <span class="ident">y</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
     <span class="doccomment">/// what GKR(g, x, y) should evaluate to</span>
-    <span class="kw">fn</span> <span class="ident">ev</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F</span>;
+    <span class="kw">fn</span> <span class="ident">expected_evaluation</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">F</span>;
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
@@ -245,13 +267,13 @@
     <span class="kw">use</span> <span class="ident">algebra</span>::<span class="ident">Field</span>;
 
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">data_structures</span>::<span class="ident">ml_extension</span>::{<span class="ident">MLExtension</span>, <span class="ident">SparseMLExtension</span>};
-    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">GKRFuncSumcheck</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">gkr_round_sumcheck</span>::<span class="ident">GKRRoundSumcheck</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">test_gkr_func_proc_completeness</span><span class="op">&lt;</span>
         <span class="ident">F</span>: <span class="ident">Field</span>,
         <span class="ident">S</span>: <span class="ident">SparseMLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>,
         <span class="ident">D</span>: <span class="ident">MLExtension</span><span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>,
-        <span class="ident">P</span>: <span class="ident">GKRFuncSumcheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>,
+        <span class="ident">P</span>: <span class="ident">GKRRoundSumcheck</span><span class="op">&lt;</span><span class="ident">F</span>, <span class="ident">S</span>, <span class="ident">D</span><span class="op">&gt;</span>,
     <span class="op">&gt;</span>(
         <span class="ident">f1</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
         <span class="ident">f2</span>: <span class="kw-2">&amp;</span><span class="ident">D</span>,

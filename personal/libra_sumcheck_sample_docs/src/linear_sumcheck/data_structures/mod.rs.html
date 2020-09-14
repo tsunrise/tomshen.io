@@ -28,8 +28,28 @@
 <span id="28">28</span>
 <span id="29">29</span>
 <span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="doccomment">//! data structures</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! The `data_structures` modules mainly consists of representations of polynomials.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! This module provides traits that the sumcheck protocol accept as input, and provides</span>
+<span class="doccomment">//! several common implementations of those traits for convenience. In practice, users</span>
+<span class="doccomment">//! might need to implement the traits by themselves.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! For example, user might implement `MLExtension` as a reference to their own GKR circuit,</span>
+<span class="doccomment">//! so that the sumcheck protocol do not need to copy the data.</span>
+<span class="doccomment">//!</span>
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">impl_ml_extension</span>::{
     <span class="ident">GKRAsLink</span>, <span class="ident">MLExtensionArray</span>, <span class="ident">MLExtensionRefArray</span>, <span class="ident">SparseMLExtensionHashMap</span>,
@@ -40,7 +60,7 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">impl_ml_extension</span>::<span class="ident">tests</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">impl_random</span>::{<span class="ident">AsDummyFeedable</span>, <span class="ident">Blake2s512Rng</span>};
 
-<span class="doccomment">/// multilinear extensions</span>
+<span class="doccomment">/// traits of data representations of multilinear extensions</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ml_extension</span>;
 
 <span class="doccomment">/// protocol</span>
