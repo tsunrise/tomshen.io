@@ -1,1 +1,1 @@
-initSidebarItems({"trait":[["GKRFunction","Represents GKR Function as described in https://eprint.iacr.org/2019/317.pdf#page=15"],["MLExtension","Multilinear Extension"],["SparseMLExtension","Sparse Multilinear Extension"]]});
+initSidebarItems({"trait":[["GKRFunction","Represents the GKR Function as described in [XZZPS19]."],["MLExtension","Multilinear Extension"],["SparseMLExtension","Sparse Multilinear Extension"]]});

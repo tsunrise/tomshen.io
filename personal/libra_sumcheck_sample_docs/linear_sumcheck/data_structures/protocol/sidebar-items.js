@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["VerifierState","represents the state of verifier"]],"trait":[["Message","Message that is transferred between protocols. The message can be (de)serialized and can be converted to bytes deterministically."],["Protocol","Interactive protocol"],["VerifierProtocol","General Verifier Protocol"]]});
