@@ -81,28 +81,72 @@
                 </div>
                 <hr>
                 <ul>
-                    <li>UC Berkeley CS Student</li>
-                    <li>Sometimes I take <a href="https://beautpiece.com/" target="_blank">photos</a></li>
-                    <li>Sometimes I do research and write some <a href="https://tomshen.io/personal/libra_sumcheck_sample_docs/linear_sumcheck/index.html">code</a> for fun. </li>
 
                 </ul>
+                <p class="looks_cool">Hello, I'm Tom! I'm a student studying Computer Science. </p>
                 <hr>
-                <p class="looks_cool">
-                    <a>tomshen.io status: <span style="color: green">OK</span></a> <br><br/>
-                    io.tomshen.info.real_name = "Conghao Shen"  <span class="not_focus">// in case you are confused</span><br/>
-                    io.tomshen.info._name_utf8 = "沈从昊"  <span class="not_focus"></span><br/>
-                    io.tomshen.<a href="resume/CV.pdf">resume</a>.last_updated = Date(9/1/2020)<br/>
-                    io.tomshen.status.level = UNDERGRADUATE.JUNIOR<br/>
-                    io.tomshen.<a href="https://github.com/tsunrise">github</a>.username = "tsunrise"<br/>
-                    io.tomshen.<a href="https://www.linkedin.com/in/conghao-shen-b179b5169/">LinkedIn</a>.username = "tsunrise"<br/><br/>
+                <h3 class="h3">Background</h3>
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action flex-column align-items-start active">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">University of California Berkeley</h5>
+                        <small>Starting 2018</small>
+                      </div>
+                      <p class="mb-1">B.A. Computer Science</p>
+                      <small>I like security, system programming, algorithms, and data science!</small>
+                    </a>
+                    <a class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Berkeley RISELab</h5>
+                        <small class="text-muted">Starting 2020</small>
+                      </div>
+                      <p class="mb-1">Research Intern - Zero-knowledge Proof System</p>
+                      <small class="text-muted">I'm now working on implementing <span href="https://eprint.iacr.org/2019/550">a R1CS proof protocol</span> and linear sumcheck protocol in Rust!</small>
+                    </a>
+                    <a class="list-group-item list-group-item-action flex-column align-items-start">
+                      <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Some New Chapters</h5>
+                        <small class="text-muted">Future</small>
+                      </div>
+                      <p class="mb-1">I'm actively looking for opportunities!</p>
+                      <small class="text-muted">Let's connect!</small>
 
-
-
-                </p>
+                    </a>
+                  </div>
+                  
+                <h3 style="margin-top: 15px;" class="h3">Footprints</h3>
+                <div class="card-deck">
+                    <div class="card">
+                      <img class="card-img-top" src="img/encrypt.bmp" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">End-to-End File Encryption System</h5>
+                        <p class="card-text">an end-to-end secure file storage/sharing system that uses untrusted data server.</p>
+                        <p class="card-text"><small class="text-muted">Spring 2020</small></p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img class="card-img-top" src="img/cert.bmp" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Sumcheck Interactive Proof Protocol</h5>
+                        <p class="card-text">Offline sumcheck protocol implemented in <a href="personal/libra_sumcheck_sample_docs/linear_sumcheck/index.html">Rust</a> and <a href="https://github.com/tsunrise/sumcheck_multilinear">Python</a> where the prover takes linear time and verifier takes log time. </p>
+                        <p class="card-text"><small class="text-muted">Fall 2020</small></p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img class="card-img-top" src="img/sharing.bmp" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Byte Scissor</h5>
+                        <p class="card-text">An optimized secret sharing scheme implemented in <a href="https://github.com/tsunrise/ByteScissor">C++</a>. </p>
+                        <p class="card-text"><small class="text-muted">Summer 2019</small></p>
+                      </div>
+                    </div>
+                  </div>
                 <hr>
                 <a class="github-button" href="https://github.com/tsunrise/tomshen.io/issues/new" data-icon="octicon-issue-opened">
                     Report
                 </a>
+                <br/>
+                <span style="font-size: small;">By the way, my legal name is Conghao Shen. </span>
                 <br>
             </div>
             <div class="col-sm-3 col-lg-2 d-none d-sm-block" id="selfie">
@@ -119,5 +163,13 @@
 </body>
 
 <script src="assets/main.js"></script>
+<script>
+    document.write(
+      '<script src="http://' +
+        (location.host || '${1:localhost}').split(':')[0] +
+        ':35729/livereload.js?snipver=1"></' +
+        'script>'
+    );
+  </script>
 </html>
 <!--END-->
