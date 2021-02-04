@@ -7,9 +7,9 @@ assignees: ''
 
 ---
 
-**What needs to be removed? **
+**What needs to be removed?**
 <!--Please enter your response here. -->
-**Why? **
+**Why?**
 <!--Please enter your response here. -->
 
 
