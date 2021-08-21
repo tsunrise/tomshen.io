@@ -1,3 +1,1 @@
-# Tom Shen
-Email: tomshen \<at\> berkeley.edu <br/>
-https://tomshen.io/ source code
+Website source code moved to https://github.com/tsunrise/personal_website 
